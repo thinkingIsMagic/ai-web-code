@@ -1,36 +1,72 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Home Web Project V1
 
-## Getting Started
+这是一个基于 [Next.js](https://nextjs.org) 构建的个人网站项目。
 
-First, run the development server:
+## 项目结构
+
+```
+home-web-v1/
+├── app/                    # Next.js 应用主目录
+│   ├── docs/              # 文档页面
+│   ├── gallery/           # 图库页面
+│   ├── fonts/            # 自定义字体文件
+│   ├── layout.tsx        # 全局布局组件
+│   └── page.tsx          # 首页组件
+├── lib/                   # 工具库
+└── public/               # 静态资源目录
+```
+
+## 主要功能
+
+- 📝 文档展示
+- 🖼️ 图片画廊
+- 🎨 使用 Tailwind CSS 构建的现代化 UI
+- 🔤 集成 Geist 字体优化
+
+## 开发指南
+
+1. 安装依赖：
+
+```bash
+npm install
+# 或
+yarn install
+# 或
+pnpm install
+```
+
+2. 启动开发服务器：
 
 ```bash
 npm run dev
-# or
+# 或
 yarn dev
-# or
+# 或
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3. 在浏览器中打开 [http://localhost:3000](http://localhost:3000) 查看结果
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 技术栈
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- [Next.js](https://nextjs.org) - React 框架
+- [Tailwind CSS](https://tailwindcss.com) - CSS 框架
+- [TypeScript](https://www.typescriptlang.org) - 类型安全的 JavaScript
+- [Geist Font](https://vercel.com/font) - Vercel 设计的现代字体
 
-## Learn More
+## 部署
 
-To learn more about Next.js, take a look at the following resources:
+本项目可以轻松部署到 [Vercel 平台](https://vercel.com)。
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+vercel
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 开发环境要求
 
-## Deploy on Vercel
+- Node.js 18.0 或更高版本
+- npm 或 yarn 或 pnpm
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 许可证
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+[MIT](LICENSE)
