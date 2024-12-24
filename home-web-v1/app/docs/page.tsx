@@ -5,6 +5,12 @@ import Link from 'next/link'
 import { Book, ChevronRight, Menu, List } from 'lucide-react'
 import ReactMarkdown from 'react-markdown'
 
+interface Heading {
+  level: number;
+  text: string;
+  id: string;
+}
+
 const documents = [
   {
     id: 1,
@@ -139,7 +145,7 @@ npm start our-awesome-product
   },
 ]
 
-function extractHeadings(markdown) {
+function extractHeadings(markdown: string) {
   const headingRegex = /^(#{1,6})\s+(.+)$/gm;
   const headings = [];
   let match;
@@ -158,7 +164,7 @@ function extractHeadings(markdown) {
 export default function Docs() {
   const [selectedDoc, setSelectedDoc] = useState(documents[0])
   const [sidebarOpen, setSidebarOpen] = useState(false)
-  const [headings, setHeadings] = useState([])
+  const [headings, setHeadings] = useState<Heading[]>([])
   const [activeHeading, setActiveHeading] = useState('')
 
   useEffect(() => {
@@ -233,9 +239,9 @@ export default function Docs() {
             <div className="max-w-3xl mx-auto">
               <ReactMarkdown
                 components={{
-                  h1: ({node, ...props}) => <h1 id={props.children[0].toLowerCase().replace(/[^\w]+/g, '-')} {...props} className="text-3xl font-bold mt-8 mb-4" />,
-                  h2: ({node, ...props}) => <h2 id={props.children[0].toLowerCase().replace(/[^\w]+/g, '-')} {...props} className="text-2xl font-semibold mt-6 mb-3" />,
-                  h3: ({node, ...props}) => <h3 id={props.children[0].toLowerCase().replace(/[^\w]+/g, '-')} {...props} className="text-xl font-medium mt-4 mb-2" />,
+                  h1: ({node, ...props}) => <h1 id={String(props.children).toLowerCase().replace(/[^\w]+/g, '-')} {...props} className="text-3xl font-bold mt-8 mb-4" />,
+                  h2: ({node, ...props}) => <h2 id={String(props.children).toLowerCase().replace(/[^\w]+/g, '-')} {...props} className="text-2xl font-semibold mt-6 mb-3" />,
+                  h3: ({node, ...props}) => <h3 id={String(props.children).toLowerCase().replace(/[^\w]+/g, '-')} {...props} className="text-xl font-medium mt-4 mb-2" />,
                 }}
               >
                 {selectedDoc.content}
